@@ -65,7 +65,6 @@ class SVGMath:
             )
             y += spacing
 
-
     # -------------------------------------------------------
     # Axis
     # -------------------------------------------------------
@@ -137,7 +136,6 @@ class SVGMath:
 
             y += spacing
 
-
     # -------------------------------------------------------
     # Function plotting
     # -------------------------------------------------------
@@ -178,6 +176,30 @@ class SVGMath:
         x_svg, y_svg = self.to_svg_xy(x, y)
         self.elements.append(
             f'<text x="{x_svg}" y="{y_svg}" font-size="{font_size}" fill="{color}">{content}</text>'
+        )
+
+    def fraction(self, prefix: str, numerator: str, denominator: str, x: float, y: float, color: str = "black", font_size: int = 8, line_thickness: float = 0.5):
+        x_svg, y_svg = self.to_svg_xy(x, y)
+        # Prefix
+        self.elements.append(
+            f'<text x="{x_svg - font_size * 1.2}" y="{y_svg + font_size/4}" '
+            f'font-size="{font_size}" fill="{color}" text-anchor="end">{prefix}</text>'
+        )
+        # Numerator
+        self.elements.append(
+            f'<text x="{x_svg}" y="{y_svg - font_size * 0.3}" '
+            f'font-size="{font_size}" fill="{color}" text-anchor="middle">{numerator}</text>'
+        )
+        # Denominator
+        self.elements.append(
+            f'<text x="{x_svg}" y="{y_svg + font_size * 0.7}" '
+            f'font-size="{font_size}" fill="{color}" text-anchor="middle">{denominator}</text>'
+        )
+        # Fraction line
+        self.elements.append(
+            f'<line x1="{x_svg - font_size}" y1="{y_svg}" '
+            f'x2="{x_svg + font_size}" y2="{y_svg}" '
+            f'stroke="{color}" stroke-width="{line_thickness}" />'
         )
 
     # -------------------------------------------------------
