@@ -1,1 +1,7 @@
-Plot 1:
+y = mx+b | -b
+y - b = mx | :x
+(y - b) : x
+
+M = y-b/x
+
+1-(-3)/4 = 1

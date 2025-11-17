@@ -5,13 +5,13 @@ def main():
 
     svg.axis()
     svg.grid(spacing=1, color="#eee", stroke_width=0.5)
-    svg.ticks(spacing=1, font_size=4)
+    svg.ticks(spacing=1, font_size=8)
 
     functions = [
-        (lambda x: -x+2, "pink"),
-        (lambda x: -4*x+4, "blue"),
-        (lambda x: -x*3-5, "green"),
-        (lambda x: x-3, "black"),
+        (lambda x: x*2-6, "green"),
+        (lambda x: -0.5*x+2, "blue"),
+        (lambda x: 3*x, "pink"),
+        (lambda x: -6*x-4, "black"),
     ]
 
     for func, color in functions:
@@ -20,7 +20,11 @@ def main():
     svg.text(-6.5, 4, "y = mx+b", color="black", font_size=18)
     svg.fraction("m = ", "y - b", "x", -4.5, 2, color="black", font_size=18)
 
-    svg.save("plot2.svg")
+    svg.map_coord(1, 3, text="A", color="black", font_size=12)
+    #svg.map_coord(-4, 7, text="B", color="black", font_size=12)
+
+
+    svg.save("plot.svg")
 
 
 if __name__ == "__main__":
