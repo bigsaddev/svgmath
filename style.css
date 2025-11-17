@@ -65,30 +65,31 @@ h2 {
   }
 }
 
-/* --- Spoiler container --- */
-.spoiler {
-  width: 100%;
-}
-
-/* --- Spoiler toggle button --- */
+/* Spoiler button override so KaTeX can't break it */
 .spoiler-toggle {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
-  background: #005dab;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  all: unset;
+  display: inline-block;
+  background: #eee;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
 }
 
+/* Hover */
 .spoiler-toggle:hover {
-  background: #0070d0;
+  background: #ddd;
 }
 
-/* --- Hidden content --- */
+/* Spoiler content hidden state */
 .spoiler-content {
   display: none;
+  margin-top: 1rem;
+}
+
+/* Visible version */
+.spoiler-content.visible {
+  display: block;
 }
