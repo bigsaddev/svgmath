@@ -20,7 +20,14 @@ def main():
     #svg.text(-6.5, 4, "y = mx+b", color="black", font_size=18)
     #svg.fraction("m = ", "y - b", "x", -4.5, 2, color="black", font_size=18)
 
-    svg.text(-6, 6, "Bestimme die Punkte (x/y)")
+    svg.text(-8, 6, "Bestimme die Punkte (x/y)", font_size=14)
+    svg.map_blank(1, 4, text="A(_/_)")
+    svg.map_blank(-4, 1, text="B(_/_)")
+    svg.map_blank(3, 6, text="C(_/_)")
+    svg.map_blank(-3, -6, text="D(_/_)")
+    svg.map_blank(-2, -4, text="E(_/_)")
+    svg.map_blank(-3, 5, text="F(_/_)")
+    svg.map_blank(5, -3, text="G(_/_)")
 
     svg.save("plot4.svg")
 

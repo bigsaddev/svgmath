@@ -168,6 +168,14 @@ class SVGMath:
             f'font-size="{font_size}" fill="{color}">{text + f"({x:g}/{y:g})"}</text>'
         )
 
+    def map_blank(self, x: float, y: float, color: str = "black", font_size: int = 8, text_offset: float = 2.0, text: str = "", radius: float = 2.0):
+        x_svg, y_svg = self.to_svg_xy(x, y)
+        self.elements.append(
+            f'<circle cx="{x_svg}" cy="{y_svg}" r="{radius}" fill="{color}" />'
+            + f'<text x="{x_svg + text_offset}" y="{y_svg - text_offset}" '
+            f'font-size="{font_size}" fill="{color}">{text}</text>'
+        )
+
     # -------------------------------------------------------
     # Text
     # -------------------------------------------------------
