@@ -1,11 +1,11 @@
 from lib.svgmath import SVGMath
 
 def main():
-    svg = SVGMath(400, 400, scale=25)
+    svg = SVGMath(400, 400, scale=25, centered=False)
 
-    svg.axis()
+    # svg.axis()
     svg.grid(spacing=1, color="#eee", stroke_width=0.5)
-    svg.ticks(spacing=1, font_size=8)
+    # svg.ticks(spacing=1, font_size=8)
 
     #functions = [
         #(lambda x: x*2+2, "green"),
@@ -17,19 +17,30 @@ def main():
     #for func, color in functions:
         #svg.plot_function(func, color, stroke_width=1.5, step=0.5)
 
-    #svg.text(-6.5, 4, "y = mx+b", color="black", font_size=18)
-    #svg.fraction("m = ", "y - b", "x", -4.5, 2, color="black", font_size=18)
+    svg.text(10, 0, "4x - 10 = 2x + 20", font_size=18, color="black")
+    svg.text(160, 0, "| +10", font_size=18, color="red")
+    svg.text(10, 20, "4x = 2x + 30", font_size=18, color="black")
+    svg.text(160, 20, "| -2x", font_size=18, color="red")
+    svg.text(10, 40, "2x = 30", font_size=18, color="black")
+    svg.text(160, 40, "| : 2", font_size=18, color="red")
+    svg.text(10, 60, "x = 15", font_size=18, color="black")
+    svg.line(10, 80, 60, 80, stroke="black", stroke_width=1.0)
+    svg.line(10, 82, 60, 82, stroke="black", stroke_width=1.0)
 
-    svg.text(-8, 6, "Bestimme die Punkte (x/y)", font_size=14)
-    svg.map_blank(1, 4, text="A(_/_)")
-    svg.map_blank(-4, 1, text="B(_/_)")
-    svg.map_blank(3, 6, text="C(_/_)")
-    svg.map_blank(-3, -6, text="D(_/_)")
-    svg.map_blank(-2, -4, text="E(_/_)")
-    svg.map_blank(-3, 5, text="F(_/_)")
-    svg.map_blank(5, -3, text="G(_/_)")
+    # new approach
+    svg.text(10, 100, "4x - 10 = 2x + 20", font_size=18, color="black")
+    svg.line(70, 120, 70, 240, stroke="black", stroke_width=1.0)
+    svg.text(32, 120, "+10", font_size=18, color="red")
+    svg.text(103, 120, "+10", font_size=18, color="red")
+    svg.text(43, 140, "4x = 2x + 30", font_size=18, color="black")
+    svg.text(32, 160, "-2x", font_size=18, color="red")
+    svg.text(103, 160, "-2x", font_size=18, color="red")
+    svg.text(43, 180, "2x = 30", font_size=18, color="black")
+    svg.text(32, 200, ": 2", font_size=18, color="red")
+    svg.text(103, 200, ": 2", font_size=18, color="red")
+    svg.text(50, 220, "x = 15", font_size=18, color="black")
 
-    svg.save("plot4.svg")
+    svg.save("equation.svg")
 
 
 if __name__ == "__main__":

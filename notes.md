@@ -22,7 +22,7 @@ Fällt der Funktionsgraph hat _m_ ein _negatives_ Vorzeichen
 > TODO: Graph einfügen für A->B
 
 Eine Zuordnung des Punktes A geschieht durch die Koordinaten (2/1). Sie bilden ein Wertepaar
-Zur Berechnung der Wertepaare verwendet man eine Funktionsgleichung (y=mx+b)
+Zur Berechnung der Wertepaare verwendet man eine Funktionsgleichung _(y=mx+b)_
 
 # Schnittpunkt mit der y-Achse
 
@@ -30,11 +30,11 @@ In der Regel gehen Funktionsgraphen nicht durch den Nullpunkt.
 Dies bedeutet für die Funktionsgleichung, das der Schnittpunkt mit der y-Achse angefügt werden muss.
 
 Die Funktionsgleichung hat damit die Form
-y=mx+b
+_y=mx+b_
 
 Dies bedeutet für die Bestimmung der Steigung, dass man nicht mehr vom Nullpunkt ausgehen kann, sondern vom Schnittpunkt mit der y-Achse ausgeht.
 
-Die Variable b am Ende der Funktionsgleichung ist der Schnittpunkt des Graphen mit der y-Achse.
+Die Variable _b_ am Ende der Funktionsgleichung ist der Schnittpunkt des Graphen mit der y-Achse.
 
 # Schnittpunkt mit der y-Achse
 

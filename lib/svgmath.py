@@ -14,8 +14,8 @@ class SVGMath:
             self.origin_x = width / 2
             self.origin_y = height / 2
         else:
-            self.origin_x = padding
-            self.origin_y = height - padding
+            self.origin_x = 0
+            self.origin_y = 0
 
     # -------------------------------------------------------
     # Helper conversions
@@ -23,9 +23,12 @@ class SVGMath:
 
     def to_svg_xy(self, x, y):
         """Convert math coords → SVG coords."""
-        x_svg = self.origin_x + x * self.scale
-        y_svg = self.origin_y - y * self.scale
-        return x_svg, y_svg
+        if self.centered:
+            x_svg = self.origin_x + x * self.scale
+            y_svg = self.origin_y - y * self.scale
+            return x_svg, y_svg
+        else:
+            return x, y
 
     # -------------------------------------------------------
     # Grid
@@ -177,13 +180,24 @@ class SVGMath:
         )
 
     # -------------------------------------------------------
+    # Primitives
+    # -------------------------------------------------------
+    def line(self, x1: float, y1: float, x2: float, y2: float, stroke: str = "black", stroke_width: float = 1.0):
+        x1_svg, y1_svg = self.to_svg_xy(x1, y1)
+        x2_svg, y2_svg = self.to_svg_xy(x2, y2)
+        self.elements.append(
+            f'<line x1="{x1_svg}" y1="{y1_svg}" x2="{x2_svg}" y2="{y2_svg}" '
+            f'stroke="{stroke}" stroke-width="{stroke_width}" />'
+        )
+
+    # -------------------------------------------------------
     # Text
     # -------------------------------------------------------
 
     def text(self, x: float, y: float, content: str, color: str = "black", font_size: int = 8):
         x_svg, y_svg = self.to_svg_xy(x, y)
         self.elements.append(
-            f'<text x="{x_svg}" y="{y_svg}" font-size="{font_size}" fill="{color}">{content}</text>'
+            f'<text x="{x_svg}" y="{y_svg+font_size}" font-size="{font_size}" fill="{color}">{content}</text>'
         )
 
     def fraction(self, prefix: str, numerator: str, denominator: str, x: float, y: float, color: str = "black", font_size: int = 8, line_thickness: float = 0.5):
