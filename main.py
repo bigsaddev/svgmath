@@ -40,6 +40,8 @@ def main():
     svg.text(103, 200, ": 2", font_size=18, color="red")
     svg.text(50, 220, "x = 15", font_size=18, color="black")
 
+    svg.map_coord(300, 300, color="blue", font_size=12, text_offset=3.0, blank_coords=True, radius=3.0)
+
     svg.save("equation.svg")
 
 

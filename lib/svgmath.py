@@ -163,20 +163,15 @@ class SVGMath:
     # Points + Labels
     # -------------------------------------------------------
 
-    def map_coord(self, x: float, y: float, color: str = "black", font_size: int = 8, text_offset: float = 2.0, text: str = "", radius: float = 2.0):
+    def map_coord(self, x: float, y: float, color: str = "black", font_size: int = 8, text_offset: float = 2.0, text: str = "", radius: float = 2.0, blank_coords: bool = False):
         x_svg, y_svg = self.to_svg_xy(x, y)
-        self.elements.append(
-            f'<circle cx="{x_svg}" cy="{y_svg}" r="{radius}" fill="{color}" />'
-            + f'<text x="{x_svg + text_offset}" y="{y_svg - text_offset}" '
-            f'font-size="{font_size}" fill="{color}">{text + f"({x:g}/{y:g})"}</text>'
-        )
 
-    def map_blank(self, x: float, y: float, color: str = "black", font_size: int = 8, text_offset: float = 2.0, text: str = "", radius: float = 2.0):
-        x_svg, y_svg = self.to_svg_xy(x, y)
+        coord_text = f"{x:g},{y:g}" if not blank_coords else "_/_"
+
         self.elements.append(
             f'<circle cx="{x_svg}" cy="{y_svg}" r="{radius}" fill="{color}" />'
             + f'<text x="{x_svg + text_offset}" y="{y_svg - text_offset}" '
-            f'font-size="{font_size}" fill="{color}">{text}</text>'
+            f'font-size="{font_size}" fill="{color}">{text + f"({coord_text})"}</text>'
         )
 
     # -------------------------------------------------------
@@ -188,6 +183,13 @@ class SVGMath:
         self.elements.append(
             f'<line x1="{x1_svg}" y1="{y1_svg}" x2="{x2_svg}" y2="{y2_svg}" '
             f'stroke="{stroke}" stroke-width="{stroke_width}" />'
+        )
+
+    def circle(self, cx: float, cy: float, radius: float = 5.0, stroke: str = "black", stroke_width: float = 1.0, fill: str = "none"):
+        cx_svg, cy_svg = self.to_svg_xy(cx, cy)
+        self.elements.append(
+            f'<circle cx="{cx_svg}" cy="{cy_svg}" r="{radius}" '
+            f'stroke="{stroke}" stroke-width="{stroke_width}" fill="{fill}" />'
         )
 
     # -------------------------------------------------------
