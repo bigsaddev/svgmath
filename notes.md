@@ -38,7 +38,7 @@ Die Variable _b_ am Ende der Funktionsgleichung ist der Schnittpunkt des Graphen
 
 # Schnittpunkt mit der y-Achse
 
-Der Schnittpunnkt mit der y-Achse ist in der Funktionsgleichung der Wert b, der meist am Ende der Gleichung angefügt ist.
+Der Schnittpunkt mit der y-Achse ist in der Funktionsgleichung der Wert b, der meist am Ende der Gleichung angefügt ist.
 y = mx+b
 Er biildet in der Aufgabenstellung einen festen Anfangswert, von dem aus der Graph eingezeichnet wird.
 Dies ist aber nicht immer der Fall.
@@ -46,5 +46,5 @@ Dies ist aber nicht immer der Fall.
 # Berechnung der Nullstelle
 
 Die Nullstelle der linearen Funktion ist die Stelle, an der y den Wert 0 hat.
-An diesem Punnkt schneidet oder berührt der Graph die x-Achse.
+An diesem Punkt schneidet oder berührt der Graph die x-Achse.
 Die Nullstelle lässt sich rechnerisch berechnen.
