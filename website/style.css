@@ -36,6 +36,11 @@ a {
   font-weight: bold;
 }
 
+.center {
+  text-align: center;
+  margin: auto;
+}
+
 /* --- Two-column layout --- */
 
 .exercise-block {
