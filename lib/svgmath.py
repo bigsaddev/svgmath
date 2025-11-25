@@ -116,7 +116,7 @@ class SVGMath:
             )
             # label
             self.elements.append(
-                f'<text x="{x_svg - 1.25}" y="{self.origin_y + 8}" '
+                f'<text x="{x_svg - font_size/2}" y="{self.origin_y + font_size + 2}" '
                 f'font-size="{font_size}" fill="{color}">{x:g}</text>'
             )
             x += spacing
@@ -133,7 +133,7 @@ class SVGMath:
             )
 
             self.elements.append(
-                f'<text x="{self.origin_x - 8}" y="{y_svg + 1.25}" '
+                f'<text x="{self.origin_x - font_size - 2}" y="{y_svg + font_size/3}" '
                 f'font-size="{font_size}" fill="{color}">{y:g}</text>'
             )
 
@@ -166,7 +166,7 @@ class SVGMath:
     def map_coord(self, x: float, y: float, color: str = "black", font_size: int = 8, text_offset: float = 2.0, text: str = "", radius: float = 2.0, blank_coords: bool = False):
         x_svg, y_svg = self.to_svg_xy(x, y)
 
-        coord_text = f"{x:g},{y:g}" if not blank_coords else "_/_"
+        coord_text = f"{x:g}/{y:g}" if not blank_coords else "_/_"
 
         self.elements.append(
             f'<circle cx="{x_svg}" cy="{y_svg}" r="{radius}" fill="{color}" />'
@@ -177,6 +177,7 @@ class SVGMath:
     # -------------------------------------------------------
     # Primitives
     # -------------------------------------------------------
+
     def line(self, x1: float, y1: float, x2: float, y2: float, stroke: str = "black", stroke_width: float = 1.0):
         x1_svg, y1_svg = self.to_svg_xy(x1, y1)
         x2_svg, y2_svg = self.to_svg_xy(x2, y2)
